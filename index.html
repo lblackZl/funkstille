@@ -24,7 +24,7 @@
 <body>
 <div class="tag">FUNKSTILLE</div>
 <h1>Datenschutzerklärung für Funkstille</h1>
-<p>Stand: 9. November 2026</p>
+<p>Stand: 10. November 2026</p>
 <p>Funkstille hilft dir und deinen Freunden, gemeinsam das Handy wegzulegen. Dafür brauchen wir so wenig Daten wie möglich. Es gibt kein Konto, keine Werbung, kein Tracking und keine Analyse-Dienste.</p>
 <h2>Verantwortlicher</h2>
 <p>Andreas Fleischer<br>Mozartstraße 2<br>95145 Oberkotzau<br>Deutschland</p>
@@ -35,7 +35,7 @@
 <li><strong>Deine Bildschirmzeit-Auswahl.</strong> Apple gibt Funkstille nur anonyme Platzhalter. Wir sehen nicht, welche Apps du nutzt oder sperrst.</li>
 <li><strong>Wie oft du einer gesperrten App widerstanden hast.</strong> Das siehst nur du.</li>
 <li><strong>Dein Zuhause und das Ziel deines Heimwegs</strong> (Adresse oder Koordinaten), falls du sie angibst.</li>
-<li><strong>Dein genauer Standort.</strong> Auf dem Heimweg wird daraus nur die Entfernung nach Hause berechnet.</li>
+<li><strong>Dein genauer Standort</strong> – außer du schaltest „Standort teilen“ selbst ein (siehe unten). Auf dem Heimweg wird daraus nur die Entfernung nach Hause berechnet.</li>
 </ul>
 <h2>Was deine Crew sieht</h2>
 <p>Wenn du eine Crew gründest oder ihr beitrittst, speichert Funkstille folgende Angaben in Apples iCloud-Dienst CloudKit (öffentliche Datenbank des Containers <code>iCloud.de.sickshots.funkstille</code>):</p>
@@ -44,16 +44,25 @@
 <li>den Namen, den du in der Crew angibst,</li>
 <li>eine zufällige Kennung deines Geräts (keine Apple-ID, keine Telefonnummer),</li>
 <li>Ereignisse mit Zeitpunkt: beigetreten, Funkstille gestartet (mit geplanter Dauer), durchgehalten oder „gefunkt“ (mit Minuten), Runde gestartet (mit Endzeit), auf dem Heimweg, gut zuhause angekommen,</li>
-<li>auf dem Heimweg die <strong>grob gerundete Entfernung</strong> nach Hause (z. B. „noch ca. 3 km“), falls du ein Zuhause festgelegt hast.</li>
+<li>auf dem Heimweg die <strong>grob gerundete Entfernung</strong> nach Hause (z. B. „noch ca. 3 km“), falls du ein Zuhause festgelegt hast,</li>
+<li>bei „Prost“ den Treffpunkt, den du optional eingibst (z. B. „an der Bar“),</li>
+<li>bei „Genau finden“ den Namen der Person, die du suchst.</li>
 </ul>
 <p>Diese Einträge kann jeder lesen, der den Crew-Code kennt. Teile ihn deshalb nur mit Leuten, die du dabeihaben willst.</p>
-<p>Zweck: Die Crew-Funktion – Rangliste, gemeinsame Runden, Heimweg-Status. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (die von dir genutzte Funktion). Ereignisse älter als eine Woche nutzt die App nicht mehr.</p>
+<h2>Verschlüsselt: Standort und „Genau finden“</h2>
+<p>Wenn du <strong>„Standort teilen“</strong> einschaltest, speichert Funkstille deinen Standort (Koordinaten, Genauigkeit, Ende des Teilens) in CloudKit – aber <strong>Ende-zu-Ende verschlüsselt</strong> (AES-GCM). Der Schlüssel steht nur im QR-Code bzw. Einladungslink deiner Crew und auf den Handys der Mitglieder, nie in CloudKit. Apple und wir können den Standort nicht lesen. Das Teilen endet nach der von dir gewählten Zeit (höchstens 4 Stunden) von selbst, du kannst es jederzeit beenden. Es gibt nur einen Eintrag pro Person, der überschrieben wird.</p>
+<p>Bei <strong>„Genau finden“</strong> tauschen zwei Handys auf demselben Weg verschlüsselt ein technisches Kennzeichen aus (Nearby-Interaction-Token). Danach messen die Handys Abstand und Richtung direkt untereinander per Ultrabreitband. Diese Messwerte werden nicht gespeichert und nicht übertragen.</p>
+<p>Zweck: Die Crew-Funktion – Rangliste, gemeinsame Runden, Heimweg-Status, Zusammenfinden. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (die von dir genutzte Funktion). Ereignisse älter als eine Woche nutzt die App nicht mehr.</p>
 <h2>Mitteilungen</h2>
 <p>Für Mitteilungen an deine Crew (z. B. „Lena ist gut zuhause angekommen“) nutzt Funkstille Apples Push-Dienst. Apple stellt die Mitteilung zu, Funkstille betreibt dafür keinen eigenen Server.</p>
 <h2>Standort</h2>
-<p>Nur zwischen „Ich mach mich auf den Heimweg“ und „Bin gut zuhause“ – und nur, wenn du ein Zuhause festgelegt und den Standortzugriff erlaubt hast. iOS zeigt das mit der blauen Standortanzeige an. Geteilt wird ausschließlich die gerundete Entfernung.</p>
+<p>Funkstille nutzt deinen Standort nur in zwei Fällen, jeweils nur mit deiner Erlaubnis. iOS zeigt das mit der blauen Standortanzeige an.</p>
+<ul>
+<li><strong>Heimweg:</strong> zwischen „Auf den Heimweg“ und „Bin gut zuhause“, wenn du ein Ziel festgelegt hast. Geteilt wird nur die gerundete Entfernung.</li>
+<li><strong>Standort teilen:</strong> nur wenn du es selbst einschaltest und nur bis zum gewählten Ende. Geteilt wird der Standort verschlüsselt mit deiner Crew (siehe oben).</li>
+</ul>
 <h2>Kamera</h2>
-<p>Nur zum Scannen eines Crew-QR-Codes. Es werden keine Bilder gespeichert oder übertragen.</p>
+<p>Zum Scannen eines Crew-QR-Codes und bei „Genau finden“, wo die Kamera hilft, die Richtung zu bestimmen. Es werden keine Bilder gespeichert oder übertragen.</p>
 <h2>Apple als Dienstleister</h2>
 <p>CloudKit und der Push-Dienst werden von Apple betrieben (Apple Distribution International Ltd., Irland). Es gilt zusätzlich Apples Datenschutzrichtlinie: <a href="https://www.apple.com/de/legal/privacy/">https://www.apple.com/de/legal/privacy/</a>.</p>
 <h2>Deine Rechte</h2>

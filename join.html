@@ -81,10 +81,14 @@
   }
 
   const code = normalize(new URLSearchParams(location.search).get("code"));
+  // Crew-Schlüssel aus dem Fragment (#k=…). Fragmente schickt der Browser nie an den Server,
+  // die Seite reicht ihn nur an die App weiter.
+  const keyMatch = location.hash.match(/^#k=([A-Za-z0-9_-]{43})$/);
+  const key = keyMatch ? keyMatch[1] : null;
   if (code) {
     document.getElementById("invite").classList.remove("hidden");
     document.getElementById("code").textContent = code.slice(0, 3) + " " + code.slice(3);
-    document.getElementById("open").href = "funkstille://join?code=" + code;
+    document.getElementById("open").href = "funkstille://join?code=" + code + (key ? "&k=" + key : "");
     document.title = "Einladung " + code + " – Funkstille";
     if (INSTALL_URL) {
       const install = document.getElementById("install");
